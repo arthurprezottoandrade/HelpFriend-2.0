@@ -1,0 +1,151 @@
+body {
+    margin: auto;
+    padding: auto;
+    height: 100%;
+    width: 100%;
+}
+
+/* estilo de cabecalho */
+.cabecalho {
+    width: 100%;
+    background-color: white;
+    height: 160px;
+}
+
+/* imagem de logo */
+.logo {
+    float: left;
+    padding: 10px;
+    width: 425px;
+}
+
+/* posição de texto MENU SOBRE CONTATO */
+.botao-cabecalho {
+    margin-left: 50px;
+    float: right;
+    width: 55.5%;
+    padding: 50px;
+}
+
+/* estilo de texto MENU SOBRE CONTATO */
+.botao-cabecalho ul li {
+    margin: 0px 20px 0px 0px;
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+    color: black;
+    text-decoration: underline none;
+}
+
+/* Mudar cor ao passar cursor */
+.botao-cabecalho ul li :hover {
+    color: rgb(197, 146, 83);
+}
+
+/* estilo de link */
+.botao-cabecalho a {
+    text-decoration: none;
+}
+
+/* fonte e tamanho de texto de MENU SOBRE CONTATO */
+.botao-cabecalho h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+}
+
+/* linha horizontal de divisao */
+.linha-divisao {
+    width: 100%;
+    background-color: #c59253;
+    height: 10px;
+}
+
+.formconfirma {
+    padding: 3em 1em 5em 1em;
+    background-color: rgb(239, 239, 239);
+    height: 100%;
+    text-align: center;
+}
+
+.form {
+    background-color: white;
+    justify-content: center;
+    width: 100%;
+    max-width: 360px;
+    padding: 1em 1em 1em 1em;
+    margin: 0 auto;
+    flex-direction: column;
+    display: flex;
+    border: solid #F9FFFD;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 1px rgba(5, 5, 5, 5);
+}
+
+.titulo-form {
+    color: black;
+}
+
+.label {
+    text-align: center;
+    color: rgb(197, 146, 83);
+    flex-direction: column;
+    display: flex;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.invisivel {
+    display: none;
+}
+
+.botao-confirma {
+    -webkit-border-radius: 9;
+    -moz-border-radius: 9;
+    border-radius: 9px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 15px;
+    background: #c59253;
+    padding: 8px 18px 8px 18px;
+    text-decoration: none;
+    border: none;
+    margin-top: 10px;
+    margin-left: 30%;
+  }
+  
+.botao-confirma:hover {
+    cursor: pointer;
+    background: #99652b;
+    text-decoration: none;
+}
+
+.label2 {
+    display: flex;
+    margin-top: 10px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    flex-direction: column;
+    display: flex;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.a-cadastro {
+    color: #c59253;
+}
+
+/* rodapé */
+footer {
+    background-color: white;
+    margin-bottom: 0px;
+}
+
+/* imagem rodapé */
+.img-rodape {
+    display: block;
+    height: 200px;
+    margin: 20px auto 20px auto;
+}
+
+/* texto rodapé */
+.copyright {
+    text-align: center;
+}
