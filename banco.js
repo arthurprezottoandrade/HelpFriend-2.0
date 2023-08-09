@@ -17,4 +17,9 @@ db.connect((err) => {
     console.log('Conectado ao banco de dados MySQL');
 });
 
-module.exports = db;
+const inserirCachorro = (dados, callback) => {
+    const sql = 'INSERT INTO cachorro (Nome, Id_Raca, Ano_Nascimento, Porte, Adotado, Apto, Id_Instituicao, Imagem, Apelido) VALUES (?, 1, ?, ?, \'nao\', ?, 1, ?, ?)';
+    db.query(sql, [dados.nome, dados.anoNascimento, dados.porte, dados.apto, dados.foto, dados.apelido], callback);
+  };
+
+module.exports = { inserirCachorro, db };

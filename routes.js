@@ -1,14 +1,26 @@
 const express = require('express');
-const db = require('./banco');
+const multer = require('multer');
+const path = require('path');
 const router = express.Router();
+const { db, inserirCachorro } = require('./banco'); // Importar a função
 
-// Rota de teste para buscar dados do banco
+
+
+const storage = multer.diskStorage({
+    destination: 'uploads/',
+    filename: (req, file, cb) => {
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+  });
+  const upload = multer({ storage: storage });
+
+// Rotas de páginas
 router.get('/inicio', (req, res) => {
     res.sendFile(__dirname + '/pages/inicio.html');
 });
 router.get('/cadastroCachorro', (req, res) => {
-    res.sendFile(__dirname + '/pages/cadastroCachorro.html');
-});
+    res.sendFile(path.join(__dirname + '/pages/cadastroCachorro.html'));
+  });
 router.get('/mostraCachorro', (req, res) => {
     res.sendFile(__dirname + '/pages/mostraCachorro.html');
 });
@@ -19,18 +31,25 @@ router.get('/deletaCachorro', (req, res) => {
     res.sendFile(__dirname + '/pages/deletaCachorro.html');
 });
 
-
-router.post('/update', (req, res) => {
-    const textoTeste = req.body.textoTeste;
-    const sql = 'UPDATE teste SET teste = ? WHERE teste = "teste2"';
-    db.query(sql, [textoTeste], (err, results) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send('Erro ao atualizar registro.');
-            return;
-        }
-        res.send('Atualizado com sucesso!');
+// Mandando dados
+router.post('/cadastro', upload.single('foto'), (req, res) => {
+    const dados = {
+      nome: req.body.nome,
+      apelido: req.body.apelido,
+      anoNascimento: req.body.anoNascimento,
+      porte: req.body.porte,
+      raca: req.body.raca,
+      apto: req.body.apto === 'on' ? 'sim' : 'não',
+      foto: req.file ? req.file.filename : null
+    };
+  
+    inserirCachorro(dados, (err) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Erro ao cadastrar o cachorro.');
+      } else {
+        res.send('Cadastro realizado com sucesso!');
+      }
     });
-});
-
+  });
 module.exports = router;
