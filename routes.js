@@ -39,10 +39,10 @@ router.post('/cadastro', upload.single('foto'), (req, res) => {
       anoNascimento: req.body.anoNascimento,
       porte: req.body.porte,
       raca: req.body.raca,
-      apto: req.body.apto === 'on' ? 'sim' : 'não',
+      situacao: req.body.situacao === 'on' ? 'Apto' : 'Inapto',
       imagem: req.file ? req.file.filename : null // Caminho para a imagem
     };
-  
+
     inserirCachorro(dados, (err) => {
       if (err) {
         console.error(err);

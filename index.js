@@ -2,11 +2,11 @@ const express = require('express');
 const routes = require('./routes');
 
 const app = express();
-const PORT = 3000; // Porta que está rodando
+const PORT = 3000;
 
 // Middleware para servir arquivos estáticos
-app.use(express.static('public')); // Permitir que os arquivos sejam mostrados no navegador
-app.use(express.static('uploads')); // Permitir que os arquivos sejam mostrados no navegador 
+app.use('/public', express.static('public'));
+app.use('/uploads', express.static('uploads'));
 app.use('/', routes); // Link das rotas
 
 app.listen(PORT, () => {
