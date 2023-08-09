@@ -44,23 +44,24 @@
                 <div class="w3-code">  
                 <!-- ACESSO AO BANCO DE DADOS-->
 
+                <% cachorros.forEach(cachorro => { %>
                     <div class="card">
                         <div class="container">
                             <div class="sub-container" style="display:flex;">
                                 <div class="fields">
-                                    <h4><b><b>Id: </b></b></h4> 
-                                    <h4><b><b>Nome: </b></h4> 
-                                    <h4><b><b>Porte: </b></b></h4> 
-                                    <h4><b><b>Ano Nascimento: </b></b></h4> 
-                                    <h4><b><b>Raça: </b></b></h4>
+                                    <h4><b><b>Nome: </b><%= cachorro.Nome %></b></h4>
+                                    <h4><b><b>Porte: </b><%= cachorro.Porte %></b></h4>
+                                    <h4><b><b>Ano de Nascimento: </b><%= cachorro.Ano_Nascimento %></b></h4>
+                                    <!-- ... -->
                                 </div>
-                                <img class="fotoConvertida" src="data:image/png;base64,<?php echo $foto ?>">
+                                <img class="fotoConvertida" src="<%= cachorro.Imagem %>">
                             </div>
-                            <a href='reservaCachorro.php?id=<?php echo $id_cachorro ?>'>
+                            <a href=''>
                                 <button class="botao-reserva">Reservar</button>
                             </a>
                         </div>
                     </div>
+                <% }) %>
 
                 </div>
             </div>

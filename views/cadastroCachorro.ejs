@@ -53,22 +53,28 @@
         
                 <label for="porte">Porte:</label>
                 <select id="porte" name="porte" required>
-                    <option value="grande">Grande</option>
-                    <option value="medio">Médio</option>
-                    <option value="pequeno">Pequeno</option>
+                    <option value="Grande">Grande</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Pequeno">Pequeno</option>
                 </select><br><br>
         
                 <label for="raca">Raça:</label>
                 <select id="raca" name="raca" required>
                     <!-- Adicione as raças disponíveis aqui -->
-                    <option value="bulldog">Bulldog</option>
-                    <option value="poodle">Poodle</option>
+                    <option value="Bulldog">Bulldog</option>
+                    <option value="Poodle">Poodle</option>
                     <!-- ... -->
                 </select><br><br>
         
-                <label for="situacao">Situacao:</label>
-                <input type="checkbox" id="situacao" name="situacao" value="sim"> Sim<br><br>
-        
+                <label for="situacao">Situação:</label>
+                <select id="situacao" name="situacao" required>
+                    <!-- Adicione as raças disponíveis aqui -->
+                    <option value="Apto">Apto para adoção</option>
+                    <option value="Inapto">Inapto para adoção</option>
+                    <!-- ... -->
+                </select><br><br>
+
+
                 <label for="foto">Foto do Cachorro:</label>
                 <input type="file" id="foto" name="foto"><br><br>
         

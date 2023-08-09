@@ -22,4 +22,9 @@ const inserirCachorro = (dados, callback) => {
     db.query(sql, [dados.nome, dados.anoNascimento, dados.porte, dados.situacao, dados.imagem, dados.apelido], callback);
 };
 
-module.exports = { inserirCachorro, db };
+const buscarCachorros = (callback) => {
+    const sql = 'SELECT * FROM cachorro';
+    db.query(sql, callback);
+  };
+  
+module.exports = { db, inserirCachorro, buscarCachorros };
