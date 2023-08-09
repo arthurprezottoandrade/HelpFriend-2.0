@@ -1,0 +1,311 @@
+--
+-- Database: `helpfriendbanco`
+--
+
+--
+-- Table structure for table `administrador`
+--
+
+CREATE TABLE `administrador` (
+  `Id` int(11) NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `Senha` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `administrador`
+--
+
+INSERT INTO `administrador` (`Id`, `Nome`, `Senha`, `email`) VALUES
+(1, 'ADM', 'admsenha', 'adm@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adotante`
+--
+
+CREATE TABLE `adotante` (
+  `Id` int(11) NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `Senha` varchar(100) NOT NULL,
+  `Cpf` varchar(11) NOT NULL,
+  `id_endereco` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `adotante`
+--
+
+INSERT INTO `adotante` (`Id`, `Nome`, `Senha`, `Cpf`, `id_endereco`, `email`) VALUES
+(1, 'Adotante', 'senhaadotante', '00000000000', 1, 'adotante@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cachorro`
+--
+
+CREATE TABLE `cachorro` (
+  `Id` int(11) NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `Id_Raca` int(11) NOT NULL,
+  `Ano_Nascimento` varchar(4) NOT NULL,
+  `Porte` varchar(30) NOT NULL,
+  `Adotado` varchar(3) NOT NULL,
+  `Situacao` varchar(6) NOT NULL,
+  `Id_Instituicao` int(11) NOT NULL,
+  `Imagem` varchar(50) NOT NULL,
+  `Apelido` varchar(50) NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cachorro`
+--
+
+INSERT INTO `cachorro` (`Id`, `Nome`, `Id_Raca`, `Ano_Nascimento`, `Porte`, `Adotado`, `Situacao`, `Id_Instituicao`, `Imagem`, `Apelido`) VALUES
+(5, 'Cachorro', 3, '2015', 'Médio', '', 'Apto', 1, '', 'Panqueca');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `endereco`
+--
+
+CREATE TABLE `endereco` (
+  `Id` int(11) auto_increment NOT NULL,
+  `Bairro` varchar(100) NOT NULL,
+  `Cidade` varchar(100) NOT NULL,
+  `Estado` varchar(100) NOT NULL,
+  `Logradouro` varchar(100) NOT NULL,
+  `Numero` int(11) NOT NULL,
+  `Complemento` varchar(100) NOT null,
+  CONSTRAINT endereco_pk PRIMARY KEY (Id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `endereco`
+--
+
+INSERT INTO `endereco` (`Id`, `Bairro`, `Cidade`, `Estado`, `Logradouro`, `Numero`, `Complemento`) VALUES
+(1, 'Xaxim', 'Curitiba', 'Paraná', 'Cristiano Strobel', 2394, ''),
+(2, 'Boqueirão', 'Curitiba', 'Paraná', 'Oliveira Viana', 22294, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `funcionario`
+--
+
+CREATE TABLE `funcionario` (
+  `Id` int(11) NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `Senha` varchar(100) NOT NULL,
+  `Id_Instituicao` int(11) NOT NULL,
+  `cpf` varchar(11) NOT NULL,
+  `cargo` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `funcionario`
+--
+
+INSERT INTO `funcionario` (`Id`, `Nome`, `Senha`, `Id_Instituicao`, `cpf`, `cargo`, `email`) VALUES
+(1, 'funcionario', 'senhafuncionario', 1, '00000000000', 'Veterinário', 'funcionario@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `instituicao`
+--
+
+CREATE TABLE `instituicao` (
+  `Id` int(11) NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `Senha` varchar(100) NOT NULL,
+  `id_administrador` int(11) NOT NULL,
+  `id_endereco` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefone` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `instituicao`
+--
+
+INSERT INTO `instituicao` (`Id`, `Nome`, `Senha`, `id_administrador`, `id_endereco`, `email`, `telefone`) VALUES
+(1, 'Help Dog', 'helpdogsenha', 1, 1, 'helpdog@gmail.com', '32872352');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `raca`
+--
+
+CREATE TABLE `raca` (
+  `Id` int(11) NOT NULL,
+  `Nome` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `raca`
+--
+
+INSERT INTO `raca` (`Id`, `Nome`) VALUES
+(1, 'Pug'),
+(2, 'Rottweiler'),
+(3, 'Husky');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reserva`
+--
+
+CREATE TABLE `reserva` (
+  `id_reserva` int(11) NOT NULL,
+  `id_adotante` int(11) NOT NULL,
+  `id_cachorro` int(11) NOT NULL,
+  `status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `administrador`
+--
+ALTER TABLE `administrador`
+  ADD UNIQUE KEY `administrador_un` (`Id`);
+
+--
+-- Indexes for table `adotante`
+--
+ALTER TABLE `adotante`
+  ADD UNIQUE KEY `adotante_un` (`Id`),
+  ADD KEY `adotante_FK` (`id_endereco`);
+
+--
+-- Indexes for table `cachorro`
+--
+ALTER TABLE `cachorro`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `cachorro_FK` (`Id_Instituicao`),
+  ADD KEY `raca_fk` (`Id_Raca`);
+
+--
+-- Indexes for table `funcionario`
+--
+ALTER TABLE `funcionario`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `funcionario_FK` (`Id_Instituicao`);
+
+--
+-- Indexes for table `instituicao`
+--
+ALTER TABLE `instituicao`
+  ADD UNIQUE KEY `instituicao_un` (`Id`),
+  ADD KEY `instituicao_FK` (`id_administrador`),
+  ADD KEY `instituicao_endereco_FK` (`id_endereco`);
+
+--
+-- Indexes for table `raca`
+--
+ALTER TABLE `raca`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `reserva`
+--
+ALTER TABLE `reserva`
+  ADD PRIMARY KEY (`id_reserva`),
+  ADD KEY `reserva_adotante_FK` (`id_adotante`),
+  ADD KEY `reserva_cachorro_FK` (`id_cachorro`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `administrador`
+--
+ALTER TABLE `administrador`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `adotante`
+--
+ALTER TABLE `adotante`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `cachorro`
+--
+ALTER TABLE `cachorro`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `funcionario`
+--
+ALTER TABLE `funcionario`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `instituicao`
+--
+ALTER TABLE `instituicao`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `raca`
+--
+ALTER TABLE `raca`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `reserva`
+--
+ALTER TABLE `reserva`
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `adotante`
+--
+ALTER TABLE `adotante`
+  ADD CONSTRAINT `adotante_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`);
+
+--
+-- Constraints for table `cachorro`
+--
+ALTER TABLE `cachorro`
+  ADD CONSTRAINT `cachorro_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`),
+  ADD CONSTRAINT `cachorro_raca_FK` FOREIGN KEY (`Id_Raca`) REFERENCES `raca` (`Id`);
+
+--
+-- Constraints for table `funcionario`
+--
+ALTER TABLE `funcionario`
+  ADD CONSTRAINT `funcionario_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`);
+
+--
+-- Constraints for table `instituicao`
+--
+ALTER TABLE `instituicao`
+  ADD CONSTRAINT `instituicao_FK` FOREIGN KEY (`id_administrador`) REFERENCES `administrador` (`Id`),
+  ADD CONSTRAINT `instituicao_endereco_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`);
+
+--
+-- Constraints for table `reserva`
+--
+ALTER TABLE `reserva`
+  ADD CONSTRAINT `reserva_adotante_FK` FOREIGN KEY (`id_adotante`) REFERENCES `adotante` (`Id`),
+  ADD CONSTRAINT `reserva_cachorro_FK` FOREIGN KEY (`id_cachorro`) REFERENCES `cachorro` (`Id`);

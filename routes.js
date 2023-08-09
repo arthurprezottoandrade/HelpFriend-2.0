@@ -40,7 +40,7 @@ router.post('/cadastro', upload.single('foto'), (req, res) => {
       porte: req.body.porte,
       raca: req.body.raca,
       apto: req.body.apto === 'on' ? 'sim' : 'não',
-      foto: req.file ? req.file.filename : null
+      imagem: req.file ? req.file.filename : null // Caminho para a imagem
     };
   
     inserirCachorro(dados, (err) => {
