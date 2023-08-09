@@ -3,9 +3,22 @@ const db = require('./banco');
 const router = express.Router();
 
 // Rota de teste para buscar dados do banco
-router.get('/', (req, res) => {
+router.get('/inicio', (req, res) => {
     res.sendFile(__dirname + '/pages/inicio.html');
 });
+router.get('/cadastroCachorro', (req, res) => {
+    res.sendFile(__dirname + '/pages/cadastroCachorro.html');
+});
+router.get('/mostraCachorro', (req, res) => {
+    res.sendFile(__dirname + '/pages/mostraCachorro.html');
+});
+router.get('/atualizaCachorro', (req, res) => {
+    res.sendFile(__dirname + '/pages/atualizaCachorro.html');
+});
+router.get('/deletaCachorro', (req, res) => {
+    res.sendFile(__dirname + '/pages/deletaCachorro.html');
+});
+
 
 router.post('/update', (req, res) => {
     const textoTeste = req.body.textoTeste;

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../public/images/deletar.css"/>
+		<link rel="icon" type="image/jpg" href="../public/images/logo_icone.jpg"/>
+		<title>Exclusão de Cachorro - Help Friend</title>
+	</head>
+	<!-- CABEÇALHO -->
+	<header class="cabecalho">
+		<div>
+			<img class="logo" src="../public/images/logopng.png"/>
+		</div>
+		<div class="botao-cabecalho">
+			<ul>
+				<li>
+					<a href="">
+						<h3>MENU</h3>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<h3>SOBRE</h3>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<h3>CONTATO</h3>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+	<!-- LINHA DE DIVISÃO -->
+	<header class="linha-divisao"></header>
+
+	<body>
+		<!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
+		<div class="w3-main w3-container">
+
+			<!-- Retângulo de Exclusão -->
+			<div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+				<h1 class="w3-xxlarge">Exclusão de Cachorros</h1>
+
+				<p class="w3-large">
+					<div class="w3-code cssHigh notranslate">
+						
+						<!-- Título de Cachorro específico em 20px para a direita -->
+						<div class="w3-theme">
+							<h2>ID do Cachorro:</h2>
+						</div>
+						<form class="w3-container" method="post" onsubmit="return check(this.form)">
+							<input type="hidden" id="Id" name="Id" value="">
+							<p>
+							<label class="label_exclusao"><b>Nome: </b>  </label></p>
+							<p>
+							<label class="label_exclusao"><b>Raça: </b></label></p>
+							<p>
+							<label class="label_exclusao"><b>Ano de Nascimento: </b></label></p>
+							<p>
+							<label class="label_exclusao"><b>Porte: </b></label></p>
+							<p>
+							<input type="submit" value="Excluir" class="w3-btn w3-red" >
+							<input type="button" value="Cancelar" class="w3-btn" onclick="window.location.href='mostrarCachorro.html'"></p>
+						</form>
+					</div>
+				</p>
+			</div>
+		<!-- FIM PRINCIPAL -->
+		</div>
+		<!-- RODAPÉ -->
+		<footer>
+			<header class="linha-divisao"></header>
+			<img class="img-rodape" src="../public/images/logo_verticalpng.png">
+			<p class="copyright">&copy; Copyright Help Friend - 2023</p>
+		</footer>
+	</body>
+</html>
