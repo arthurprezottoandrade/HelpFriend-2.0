@@ -1,24 +1,8 @@
 const express = require('express');
-const mysql = require('mysql2');
+const db = require('./banco');
 
 const app = express();
 const PORT = 3000;
-
-// Configuração da conexão com o banco de dados
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'HelpFriend'
-});
-
-// Conecte-se ao banco de dados
-db.connect((err) => {
-    if (err) {
-        throw err;
-    }
-    console.log('Conectado ao banco de dados MySQL');
-});
 
 // Rota de teste para buscar dados do banco
 app.get('/', (req, res) => {
