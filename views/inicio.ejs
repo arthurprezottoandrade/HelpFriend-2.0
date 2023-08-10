@@ -1,85 +1,71 @@
 <!DOCTYPE html>
     <head>
-        <link rel="stylesheet" type="text/css" href="../public/css/inicio.css"/>
-        <button id="menuBtn" class="menu-btn">Menu</button>
-
-        <div id="sideMenu" class="side-menu">
-            <a href="#" class="close-btn" id="closeBtn">&times;</a>
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-        </div>
-        
+        <meta charset="UTF-8">
         <title>Help Friend</title>
         <link rel="icon" type="image/jpg" href="../public/images/logo_icone.jpg"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../public/css/inicio.css"/>
     </head>
     <body>
-    <!-- CONEXÃO COM O BANCO DE DADOS -->
-        <!-- CABEÇALHO -->
-        <header class="cabecalho">
-            <div>
-                <img class="logo" src="../public/images/logo_icone.jpg" alt="Logo Ícone">
-            </div>
-            <div class="botao-cabecalho">
-                <ul>
-                    <li>
-                        <a href="">
-                            <h3>MENU</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <h3>SOBRE</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <h3>CONTATO</h3>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </header>
-        <!-- LINHA DE DIVISÃO -->
-        <header class="linha-divisao"></header>
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <button id="menuBtn" class="material-icons">menu</button>
+        <div id="sideMenu" class="side-menu">
+            <a href="#" class="close-btn" id="closeBtn">&times;</a>
+            <a href="#">CONTATO</a>
+            <a href="#">INICIO</a>
+            <a href="#">SOBRE</a>
+        </div>
+        <img id="logoPrincipal" class="logo" src="../public/images/logopng.png" alt="Logo Ícone">
+        <div class="botoes-cabecalho">
+            <button class="login-btn" href="">LOGIN</button>
+            ou
+            <button class="cadastro-btn" href="">CADASTRO</button>
+        </div>
+    </header>
 
         <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
-        <div class="w3-main w3-container">
+        <main>
+            <div>
+                <h2 class="titulo-frase">Seu novo melhor amigo está aqui</h2>
+                <div>  
+                    <!-- ACESSO AO BANCO DE DADOS-->
 
-            <div class="w3-panel w3-padding-large w3-card-4 w3-light-dark">
-                <h2 class="w3-xxlarge"style="text-align: center">Seu novo melhor amigo está aqui</h2>
-
-                <p class="w3-large">
-                <div class="w3-code">  
-                <!-- ACESSO AO BANCO DE DADOS-->
-
-                <% cachorros.forEach(cachorro => { %>
-                    <div class="card">
-                        <div class="container">
-                            <div class="sub-container" style="display:flex;">
-                                <div class="fields">
-                                    <h4><b><b>Nome: </b><%= cachorro.Nome %></b></h4>
-                                    <h4><b><b>Porte: </b><%= cachorro.Porte %></b></h4>
-                                    <h4><b><b>Ano de Nascimento: </b><%= cachorro.Ano_Nascimento %></b></h4>
-                                    <!-- ... -->
+                    <% cachorros.forEach(cachorro => { %>
+                        <div class="card">
+                            <div class="container">
+                                <div class="sub-container" style="display:flex;">
+                                    <div class="fields">
+                                        <h4><b><b>Nome: </b><%= cachorro.Nome %></b></h4>
+                                        <h4><b><b>Porte: </b><%= cachorro.Porte %></b></h4>
+                                        <h4><b><b>Ano de Nascimento: </b><%= cachorro.Ano_Nascimento %></b></h4>
+                                        <!-- ... -->
+                                    </div>
+                                    <img class="fotoConvertida" src="<%= cachorro.Imagem %>">
                                 </div>
-                                <img class="fotoConvertida" src="<%= cachorro.Imagem %>">
+                                <a href=''>
+                                    <button class="botao-reserva">Reservar</button>
+                                </a>
                             </div>
-                            <a href=''>
-                                <button class="botao-reserva">Reservar</button>
-                            </a>
                         </div>
-                    </div>
-                <% }) %>
-
+                    <% }) %>
                 </div>
             </div>
-        </div>
+        </main>
         <!-- RODAPÉ -->
         <footer>
-            <header class="linha-divisao"></header>
             <img class="img-rodape" src="../public/images/logo_verticalpng.png">
-            <p class="copyright">&copy; Copyright Help Friend - 2023</p>
+            <div class="rodape-btn">
+                <a href="#">CONTATO</a>
+                <a href="#">INICIO</a>
+                <a href="#">SOBRE</a>
+            </div>
+            <div class="redes-sociais">
+                <img src="../public/images/facebook.png">
+                <img src="../public/images/whatsapp.png">
+                <img src="../public/images/instagram.png">
+            </div>
+            <p class="copyright"> Copyright &copy; 2023 Help Friend</p>
         </footer>
         <script src="../public/js/inicio.js"></script>
     </body>
