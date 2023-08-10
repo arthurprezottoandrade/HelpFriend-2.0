@@ -1,0 +1,151 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  font-family: Arial;
+  /*box-sizing: border-box;*/
+  min-height: 100vh;
+  background-color: #ECECEC;
+  background-image: url("../images/background.png");
+}
+
+body main {
+  flex: 1 1 0;
+}
+
+/*HEADER*/
+
+.cabecalho{
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+.logo{
+  width: 200px;
+  margin-left: 20px;
+  transition: 0.5s;
+}
+
+.botoes-cabecalho{
+  margin: 20px 20px;
+  position: absolute;
+  right: 0;
+}
+
+.login-btn {
+ width: 88px;
+ height: 27px;
+ border: none;
+ border-radius: 10px;
+ background-color: #C69254; 
+ color: white;
+ font-size: 20px;
+ cursor: pointer;
+}
+
+.cadastro-btn {
+  width: 137px;
+  height: 27px;
+  border-radius: 10px;
+  border-color: #C69254; 
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#menuBtn {
+  height: 30px;
+  margin-left: 10px;
+  margin: auto 10px ;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  border: none;
+}
+
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #F5F5F5;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.side-menu a {
+  padding: 35px 15px 5px 15px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.side-menu a:hover {
+  color: #C69254;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+/* BODY */
+/* RODAPÉ */
+
+footer {
+  width: 100%;
+  background-color: #FFFFFF;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+.img-rodape {
+  display: block;
+  height: 134px;
+  margin: 20px auto 30px auto;
+  padding-top: 35px;
+}
+
+.rodape-btn {
+  text-align: center;
+}
+
+.rodape-btn a{
+  text-decoration: none;
+  margin: auto 25px;
+  color: black;
+  font-size: 18px;
+}
+
+.rodape-btn a:hover {
+  transition: 0.3s;
+  color: #c59253;
+}
+
+.redes-sociais {
+  text-align: center;
+}
+
+.redes-sociais img{
+  padding-top: 15px;
+  margin: auto 15px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.copyright {
+  color: #8F8F8F;
+  margin-top: 20px;
+  text-align: center;
+  padding: 25px 0 10px 0;
+}
