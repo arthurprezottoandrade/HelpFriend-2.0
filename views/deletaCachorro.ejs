@@ -1,39 +1,30 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="../public/images/deletar.css"/>
-		<link rel="icon" type="image/jpg" href="../public/images/logo_icone.jpg"/>
-		<title>Exclusão de Cachorro - Help Friend</title>
-	</head>
-	<!-- CABEÇALHO -->
-	<header class="cabecalho">
-		<div>
-			<img class="logo" src="../public/images/logopng.png"/>
-		</div>
-		<div class="botao-cabecalho">
-			<ul>
-				<li>
-					<a href="">
-						<h3>MENU</h3>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<h3>SOBRE</h3>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<h3>CONTATO</h3>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</header>
-	<!-- LINHA DE DIVISÃO -->
-	<header class="linha-divisao"></header>
+    <head>
+        <meta charset="UTF-8">
+        <title>Help Friend</title>
+        <link rel="icon" type="image/jpg" href="../public/images/logo_icone.jpg"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../public/css/inicio.css"/>
+    </head>
+    <body>
 
-	<body>
+    <header class="cabecalho">
+        <button id="menuBtn" class="material-icons">menu</button>
+        <div id="sideMenu" class="side-menu">
+            <a href="#" class="close-btn" id="closeBtn">&times;</a>
+            <a href="#">INICIO</a>
+            <a href="#">CONTATO</a>
+            <a href="#">SOBRE</a>
+        </div>
+        <img id="logoPrincipal" class="logo" src="../public/images/logopng.png" alt="Logo Ícone">
+        <div class="botoes-cabecalho">
+            <button class="login-btn" href="">LOGIN</button>
+            ou
+            <button class="cadastro-btn" href="">CADASTRO</button>
+        </div>
+    </header>
+    <main>
 		<!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 		<div class="w3-main w3-container">
 
@@ -65,13 +56,24 @@
 					</div>
 				</p>
 			</div>
-		<!-- FIM PRINCIPAL -->
 		</div>
 		<!-- RODAPÉ -->
-		<footer>
-			<header class="linha-divisao"></header>
-			<img class="img-rodape" src="../public/images/logo_verticalpng.png">
-			<p class="copyright">&copy; Copyright Help Friend - 2023</p>
-		</footer>
-	</body>
+	</main>
+	<!-- RODAPÉ -->
+	<footer>
+		<img class="img-rodape" src="../public/images/logo_verticalpng.png">
+		<div class="rodape-btn">
+			<a href="#">INICIO</a>
+			<a href="#">CONTATO</a>
+			<a href="#">SOBRE</a>
+		</div>
+		<div class="redes-sociais">
+			<img src="../public/images/facebook.png">
+			<img src="../public/images/whatsapp.png">
+			<img src="../public/images/instagram.png">
+		</div>
+		<p class="copyright"> Copyright &copy; 2023 Help Friend</p>
+	</footer>
+	<script src="../public/js/inicio.js"></script>
+</body>
 </html>

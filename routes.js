@@ -4,8 +4,6 @@ const path = require('path');
 const router = express.Router();
 const { db, inserirCachorro, buscarCachorros } = require('./banco'); // Importar a função
 
-
-
 const storage = multer.diskStorage({
     destination: 'uploads/',
     filename: (req, file, cb) => {
@@ -21,24 +19,29 @@ router.get('/inicio', (req, res) => {
         console.error(err);
         res.status(500).send('Erro ao buscar os cachorros.');
       } else {
-        res.render('inicio', { cachorros }); // Renderiza a página de início com os dados dos cachorros
+        res.render('inicio', { cachorros }); // Renderiza a página de início passando os dados dos cachorros
       }
     });
   });
 
 router.get('/cadastroCachorro', (req, res) => {
-    res.sendFile(path.join(__dirname + '/views/cadastroCachorro.ejs'));
+    res.render('cadastroCachorro');
   });
 router.get('/mostraCachorro', (req, res) => {
-    res.sendFile(__dirname + '/views/mostraCachorro.ejs');
+  res.render('mostraCachorro');
 });
 router.get('/atualizaCachorro', (req, res) => {
-    res.sendFile(__dirname + '/views/atualizaCachorro.ejs');
+  res.render('atualizaCachorro');
 });
 router.get('/deletaCachorro', (req, res) => {
-    res.sendFile(__dirname + '/views/deletaCachorro.ejs');
+  res.render('deletaCachorro');
 });
-
+router.get('/cadastroFuncionario', (req, res) => {
+  res.render('cadastroFuncionario');
+});
+router.get('/loginFuncionario', (req, res) => {
+  res.render('loginFuncionario');
+});
 // Mandando dados
 router.post('/cadastro', upload.single('foto'), (req, res) => {
     const dados = {

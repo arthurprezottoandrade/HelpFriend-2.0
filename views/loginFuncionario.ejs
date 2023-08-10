@@ -26,31 +26,6 @@
 
         <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
         <main>
-            <div>
-                <h2 class="titulo-frase">Seu novo melhor amigo está aqui</h2>
-                <div>  
-                    <!-- ACESSO AO BANCO DE DADOS-->
-
-                    <% cachorros.forEach(cachorro => { %>
-                        <div class="card">
-                            <div class="container">
-                                <div class="sub-container" style="display:flex;">
-                                    <div class="fields">
-                                        <h4><b><b>Nome: </b><%= cachorro.Nome %></b></h4>
-                                        <h4><b><b>Porte: </b><%= cachorro.Porte %></b></h4>
-                                        <h4><b><b>Ano de Nascimento: </b><%= cachorro.Ano_Nascimento %></b></h4>
-                                        <!-- ... -->
-                                    </div>
-                                    <img class="fotoConvertida" src="<%= cachorro.Imagem %>">
-                                </div>
-                                <a href=''>
-                                    <button class="botao-reserva">Reservar</button>
-                                </a>
-                            </div>
-                        </div>
-                    <% }) %>
-                </div>
-            </div>
         </main>
         <!-- RODAPÉ -->
         <footer>
