@@ -23,51 +23,75 @@
             <button class="cadastro-btn" href="">CADASTRO</button>
         </div>
     </header>
-    <main>
-        <div class="formcadastro">
+    <main class="container">
+        <div class="form-image">
+            <img src="../public/images//undraw_dog_walking_re_l61p.svg">
+        </div>
+        <div class="form-cadastro">
             <form action="/cadastro" method="post" enctype="multipart/form-data">
-                <label for="nome">Nome do Cachorro:</label>
-                <input type="text" id="nome" name="nome" required><br><br>
-        
-                <label for="apelido">Apelido do Cachorro:</label>
-                <input type="text" id="apelido" name="apelido"><br><br>
-        
-                <label for="anoNascimento">Ano de Nascimento:</label>
-                <select id="anoNascimento" name="anoNascimento" required>
-                    <!-- Você pode gerar essas opções dinamicamente -->
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <!-- ... -->
-                </select><br><br>
-        
-                <label for="porte">Porte:</label>
-                <select id="porte" name="porte" required>
-                    <option value="Grande">Grande</option>
-                    <option value="Médio">Médio</option>
-                    <option value="Pequeno">Pequeno</option>
-                </select><br><br>
-        
-                <label for="raca">Raça:</label>
-                <select id="raca" name="raca" required>
-                    <!-- Adicione as raças disponíveis aqui -->
-                    <option value="Bulldog">Bulldog</option>
-                    <option value="Poodle">Poodle</option>
-                    <!-- ... -->
-                </select><br><br>
-        
-                <label for="situacao">Situação:</label>
-                <select id="situacao" name="situacao" required>
-                    <!-- Adicione as raças disponíveis aqui -->
-                    <option value="Apto">Apto para adoção</option>
-                    <option value="Inapto">Inapto para adoção</option>
-                    <!-- ... -->
-                </select><br><br>
-
-
-                <label for="foto">Foto do Cachorro:</label>
-                <input type="file" id="foto" name="foto"><br><br>
-        
-                <input type="submit" value="Cadastrar">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>CADASTRE UM CACHORRO</h1>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="nome">Nome do Cachorro</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite o nome do cachoro" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="apelido">Apelido do Cachorro</label>
+                        <input type="text" id="apelido" name="apelido" placeholder="Digite o apelido do cachorro">
+                    </div>
+                    <div class="input-box">
+                        <label for="anoNascimento">Ano de Nascimento</label>
+                        <select id="anoNascimento" name="anoNascimento" required>
+                            <!-- Você pode gerar essas opções dinamicamente -->
+                            <option value="2020">2023</option>
+                            <option value="2020">2022</option>
+                            <option value="2020">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2019">2018</option>
+                            <option value="2019">2017</option>
+                            <option value="2019">2016</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <label for="porte">Porte</label>
+                        <select id="porte" name="porte" required>
+                            <option value="Grande">Grande</option>
+                            <option value="Médio">Médio</option>
+                            <option value="Pequeno">Pequeno</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <label for="raca">Raça</label>
+                        <select id="raca" name="raca" required>
+                            <!-- Adicione as raças disponíveis aqui -->
+                            <option value="Bulldog">Bulldog</option>
+                            <option value="Poodle">Poodle</option>
+                            <!-- ... -->
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <label for="situacao">Situação</label>
+                        <select id="situacao" name="situacao" required>
+                            <option value="Apto">Apto para adoção</option>
+                            <option value="Inapto">Inapto para adoção</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="image-inputs">
+                    <div class="image-input">
+                        <label for="foto">Foto do Cachorro</label>
+                        <input type="file" id="foto" name="foto">
+                    </div>
+                </div>
+                <div class="cadastrar-button">
+                    <button><a href="#">CADASTRAR</a></button>
+                    <!-- <input type="submit" value="CADASTRAR"> -->
+                </div>
             </form>
         </div>
     </main>

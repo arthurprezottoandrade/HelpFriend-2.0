@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     margin: auto;
     font-family: Arial;
-    /*box-sizing: border-box;*/
+    box-sizing: border-box;
     min-height: 100vh;
     background-color: #ECECEC;
     background-image: url("../images/background.png");
@@ -100,6 +100,163 @@ body main {
   }
 
  /* BODY */
+
+.container {
+    margin-top: 140px;
+    margin-left: 140px;
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+}
+
+.form-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fde3a7d7;
+    padding: 1rem;
+}
+
+.form-image img {
+    width: 30rem;
+}
+
+.form-cadastro {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 3rem;
+}
+
+.form-header {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-header h1::after {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    background-color: #c59253;
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+}
+
+.input-box input, select {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+}
+
+.input-box input:hover {
+    background-color: #eeeeee75;
+}
+
+.input-box select:hover {
+    background-color: #eeeeee75;
+}
+
+.input-box select {
+    cursor: pointer;
+}
+
+.input-box input:focus-visible {
+    outline: 1px solid #c59253;
+}
+
+.input-box select:focus-visible {
+    outline: 1px solid #c59253;
+}
+
+.input-box label,
+.image-input label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #000000c0;
+}
+
+.input-box input::placeholder {
+    color: #000000be
+}
+
+.cadastrar-button button{
+    width: 100%;
+    margin-top: 2.5rem;
+    border: none;
+    background-color: #c59253;
+    padding: 0.62rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cadastrar-button button:hover {
+    background-color: #ba894d;
+    transition: 0.3s;
+}
+
+.cadastrar-button button a {
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: white;
+}
+
+@media screen and (max-width: 1330px) {
+    .form-image {
+        display: none;
+    }
+
+    .container {
+        width: 50%;
+    }
+
+    .form-cadastro {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1064px) {
+    .container {
+        width: 90%;
+        height: auto;
+    }
+
+    .input-group {
+        flex-direction: column;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+        max-height: 10rem;
+        padding-right: 5rem;
+    }
+
+    .image-inputs {
+        margin-top: 2rem;
+    }
+}
+
 /* RODAPÉ */
 
 footer {
