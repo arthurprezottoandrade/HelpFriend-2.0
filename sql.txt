@@ -167,7 +167,7 @@ INSERT INTO `raca` (`Id`, `Nome`) VALUES
 --
 
 CREATE TABLE `reserva` (
-  `id_reserva` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `id_adotante` int(11) NOT NULL,
   `id_cachorro` int(11) NOT NULL,
   `status` varchar(100) NOT NULL
