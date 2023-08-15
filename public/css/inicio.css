@@ -111,13 +111,18 @@ body main {
     margin-top: 100px;
  }
 
+.cards {
+    display: flexbox;
+}
+
 .card {
     border-radius: 14px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(179, 179, 179, 0.2);
     transition: 0.3s;
     margin-left: 80px;
-    width: 40vw;
+    margin-right: 80px;
+    width: 50vw;
     padding-bottom: 10px;
 }
 

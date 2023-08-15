@@ -27,13 +27,13 @@
         <main>
             <div>
                 <h2 class="titulo-frase">Seu novo melhor amigo está aqui</h2>
-                <div>  
+                <div class="cards">  
                     <!-- ACESSO AO BANCO DE DADOS-->
 
                     <% cachorros.forEach(cachorro => { %>
                         <div class="card">
                             <div class="container">
-                                <div class="sub-container" style="display:flex;">
+                                <div class="sub-container">
                                     <div class="fields">
                                         <h4><b><b>Nome: </b><%= cachorro.Nome %></b></h4>
                                         <h4><b><b>Porte: </b><%= cachorro.Porte %></b></h4>
