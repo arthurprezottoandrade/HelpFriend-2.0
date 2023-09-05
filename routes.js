@@ -1,48 +1,50 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
+const CachorroDB = require('./class/CachorroDB');  // Importar a classe
 const router = express.Router();
-const { db, inserirCachorro, buscarCachorros } = require('./banco'); // Importar a função
+
+const cachorroDB = new CachorroDB();  // Criar uma instância da classe
 
 const storage = multer.diskStorage({
     destination: 'uploads/',
     filename: (req, file, cb) => {
       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
-  });
-  const upload = multer({ storage: storage });
+});
+const upload = multer({ storage: storage });
 
-// Rotas de páginas
 router.get('/inicio', (req, res) => {
-    buscarCachorros((err, cachorros) => {
+    cachorroDB.buscarCachorros((err, cachorros) => {  // Usar o método da classe
       if (err) {
         console.error(err);
         res.status(500).send('Erro ao buscar os cachorros.');
       } else {
-        res.render('inicio', { cachorros }); // Renderiza a página de início passando os dados dos cachorros
+        res.render('inicio', { cachorros });
       }
     });
-  });
+});
 
 router.get('/cadastroCachorro', (req, res) => {
-    res.render('cadastroCachorro');
-  });
+  res.render('cadastroCachorro');
+});
 router.get('/mostraCachorro', (req, res) => {
-  res.render('mostraCachorro');
+res.render('mostraCachorro');
 });
 router.get('/atualizaCachorro', (req, res) => {
-  res.render('atualizaCachorro');
+res.render('atualizaCachorro');
 });
 router.get('/deletaCachorro', (req, res) => {
-  res.render('deletaCachorro');
+res.render('deletaCachorro');
 });
 router.get('/cadastroFuncionario', (req, res) => {
-  res.render('cadastroFuncionario');
+res.render('cadastroFuncionario');
 });
 router.get('/loginFuncionario', (req, res) => {
-  res.render('loginFuncionario');
+res.render('loginFuncionario');
 });
 // Mandando dados
+
 router.post('/cadastro', upload.single('foto'), (req, res) => {
     const dados = {
       nome: req.body.nome,
@@ -51,10 +53,10 @@ router.post('/cadastro', upload.single('foto'), (req, res) => {
       porte: req.body.porte,
       raca: req.body.raca,
       situacao: req.body.situacao,
-      imagem: req.file ? '/uploads/' + req.file.filename : null // Caminho para a imagem
+      imagem: req.file ? '/uploads/' + req.file.filename : null
     };
 
-    inserirCachorro(dados, (err) => {
+    cachorroDB.inserirCachorro(dados, (err) => {  // Usar o método da classe
       if (err) {
         console.error(err);
         res.status(500).send('Erro ao cadastrar o cachorro.');
@@ -62,5 +64,6 @@ router.post('/cadastro', upload.single('foto'), (req, res) => {
         res.send('Cadastro realizado com sucesso!');
       }
     });
-  });
+});
+
 module.exports = router;
