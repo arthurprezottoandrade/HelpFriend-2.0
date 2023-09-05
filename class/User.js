@@ -1,4 +1,4 @@
-const Database = require('./banco');
+const Database = require('./Database');
 
 class Usuario extends Database {
     constructor(login, senha) {
