@@ -1,12 +1,14 @@
+const Database = require('./Database');
 const Usuario = require('./User');
 
 class Funcionario extends Usuario {
-    constructor(login, senha, cargo) {
-        super(login, senha);
-        this.cargo = cargo;
+    constructor(nome, email, senha) {
+        super(nome, email, senha); // chama o construtor da classe pai
     }
-
-    get _infoFuncionario() { return [...this._loginSenha, this.cargo]; }
+    inserirFuncionario(funcionario, callback) {
+        const sql = 'INSERT INTO funcionario (Nome, Email, Senha) VALUES (?, ?, ?)';
+        this.db.query(sql, [funcionario.nome, funcionario.email, funcionario.senha], callback);
+    }
 }
 
 module.exports = Funcionario;
