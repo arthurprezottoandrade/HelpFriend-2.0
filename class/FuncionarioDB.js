@@ -1,14 +1,13 @@
-const Database = require('./Database');
 const Usuario = require('./User');
 
 class Funcionario extends Usuario {
-    constructor(nome, email, senha, cargo, cpf) {
+    constructor(nome, email, senha, cpf, cargo) {
         super(nome, email, senha, cpf); // chama o construtor da classe pai
         this.cargo = cargo
     }
-    inserirFuncionario(funcionario, callback) {
+    inserirFuncionario(dados, callback) {
         const sql = 'INSERT INTO funcionario (Nome, Senha, Id_Instituicao, cpf, cargo, email) VALUES (?, ?, 1, ?, ?, ?)';
-        this.db.query(sql, [funcionario.nome, funcionario.senha, funcionario.cpf, funcionario.cargo, funcionario.email ], callback);
+        this.db.query(sql, [dados.nome, dados.senha, dados.cpf, dados.cargo, dados.email ], callback);
     }
 }
 
