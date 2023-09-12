@@ -1,12 +1,10 @@
 const Usuario = require('./User');
 
 class Adotante extends Usuario {
-    constructor(login, senha, cargo) {
-        super(login, senha);
-        this.cargo = cargo;
+    constructor(nome, email, senha, endereco, cpf) {
+        super(nome, email, senha, cpf);
+        this.endereco = endereco;
     }
-
-    get _infoAdotante() { return [...this._loginSenha, this.cargo]; }
 }
 
 module.exports = Funcionario;
