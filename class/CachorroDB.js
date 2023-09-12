@@ -1,8 +1,15 @@
 const Database = require('./Database');
 
 class CachorroDB extends Database {
-    constructor() {
-        super();
+    constructor(nome, apelido, anoNascimento, porte, raca, situacao, imagem) {
+        super();        
+        this.nome = nome;
+        this.apelido = apelido;
+        this.anoNascimento = anoNascimento;
+        this.porte = porte;
+        this.raca = raca;
+        this.situacao = situacao;
+        this.imagem = imagem;
     }
 
     inserirCachorro(dados, callback) {

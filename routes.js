@@ -6,6 +6,7 @@ const FuncionarioDB = require('./class/FuncionarioDB');  // Importar a classe
 const AdotanteDB = require('./class/AdotanteDB');  // Importar a classe
 const router = express.Router();
 
+const cachorroDB = new CachorroDB()
 const storage = multer.diskStorage({
     destination: 'uploads/',
     filename: (req, file, cb) => {
@@ -40,6 +41,9 @@ res.render('deletaCachorro');
 router.get('/cadastroFuncionario', (req, res) => {
   res.render('cadastroFuncionario');
 });
+router.get('/cadastroAdotante', (req, res) => {
+  res.render('cadastroAdotante');
+});
 router.get('/loginFuncionario', (req, res) => {
 res.render('loginFuncionario');
 });
@@ -66,6 +70,7 @@ router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {
     });
 });
 router.post('/cadastroFuncionario', (req, res) => {
+  console.log(req.body);
   const nome = req.body.nome;
   const email = req.body.email;
   const senha = req.body.senha;
