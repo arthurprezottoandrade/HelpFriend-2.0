@@ -70,9 +70,11 @@ router.post('/cadastroFuncionario', (req, res) => {
   const nome = req.body.nome;
   const email = req.body.email;
   const senha = req.body.senha;
+  const cargo = req.body.cargo;
+  const cpf = req.body.cpf;
 
   // Criar uma nova instância de Funcionario
-  const novoFuncionario = new FuncionarioDB(nome, email, senha);
+  const novoFuncionario = new FuncionarioDB(nome, email, senha, cargo, cpf);
 
   // Inserir o novo funcionário no banco de dados
   novoFuncionario.inserirFuncionario(novoFuncionario, (err) => {  
