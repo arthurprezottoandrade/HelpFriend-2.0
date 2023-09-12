@@ -31,21 +31,29 @@
             <form action="/cadastroFuncionario" method="post" enctype="multipart/form-data">
                 <div class="form-header">
                     <div class="title">
-                        <h1>CADASTRE UM FUNCIONARIO</h1>
+                        <h1>CADASTRE UM FUNCIONÁRIO</h1>
                     </div>
                 </div>
                 <div class="input-group">
                     <div class="input-box">
-                        <label for="nome">Nome do Funcionario</label>
+                        <label for="nome">Nome do Funcionário</label>
                         <input type="text" id="nome" name="nome" placeholder="Digite o nome do funcionario" required>
                     </div>
                     <div class="input-box">
-                        <label for="email">Email do Funcionario</label>
-                        <input type="text" id="email" name="email" placeholder="Digite o apelido do funcionario">
+                        <label for="cpf">CPF do Funcionário</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="Digite o CPF do funcionario" required>
                     </div>
                     <div class="input-box">
-                        <label for="senha">Senha do Funcionario</label>
-                        <input type="text" id="senha" name="senha" placeholder="Digite o apelido do funcionario">
+                        <label for="email">Email do Funcionário</label>
+                        <input type="text" id="email" name="email" placeholder="Digite o apelido do funcionario" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="senha">Senha do Funcionário</label>
+                        <input type="text" id="senha" name="senha" placeholder="Digite o apelido do funcionario" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="cargo">Cargo do Funcionário</label>
+                        <input type="text" id="cargo" name="cargo" placeholder="Digite o cargo do funcionario" required>
                     </div>
                 </div>
                 <div class="cadastrar-button">
