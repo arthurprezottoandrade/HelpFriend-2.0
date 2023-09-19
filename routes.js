@@ -5,7 +5,14 @@ const CachorroDB = require('./class/CachorroDB');  // Importar a classe
 const FuncionarioDB = require('./class/FuncionarioDB');  // Importar a classe
 const AdotanteDB = require('./class/AdotanteDB');  // Importar a classe
 const router = express.Router();
+const nodemailer = require('nodemailer');
+const EstadoAdocao = require('./public/js/estadoAdocao');
+const EmailObservador = require('./public/js/observadores');
+const transporter = require('./public/js/emailConfig');
 
+
+const emailObservador = new EmailObservador();
+EstadoAdocao.adicionarObservador(emailObservador);
 const cachorroDB = new CachorroDB()
 const storage = multer.diskStorage({
     destination: 'uploads/',
@@ -59,12 +66,27 @@ router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {
     const imagem = req.file ? '/uploads/' + req.file.filename : null
 
     const dados = new CachorroDB(nome, apelido, anoNascimento, porte, raca, situacao, imagem);  // Criar uma instância da classe
+    // Enviar o e-mail quando um novo cachorro é cadastrado
+    const mailOptions = {
+      from: 'seu-email@gmail.com',
+      to: 'email-destinatario@gmail.com',
+      subject: 'Novo cachorro disponível para adoção!',
+      text: 'Um novo cachorro foi cadastrado e está disponível para adoção.'
+    };
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+      }
+    });
 
     dados.inserirCachorro(dados, (err) => {  // Usar o método da classe
       if (err) {
         console.error(err);
         res.status(500).send('Erro ao cadastrar o cachorro.');
       } else {
+        EstadoAdocao.notificarObservadores(dados);
         res.send('Cadastro realizado com sucesso!');
       }
     });

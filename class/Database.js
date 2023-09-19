@@ -21,6 +21,18 @@ class Database {
             console.log('Conectado ao banco de dados MySQL');
         });
     }
+
+    // Função para executar consultas SQL
+    query(sql, params, callback) {
+        this.db.query(sql, params, (err, results) => {
+            if (err) {
+                console.error("Erro ao executar a consulta:", err);
+                callback(err, null);
+                return;
+            }
+            callback(null, results);
+        });
+    }
 }
 
 module.exports = Database;
