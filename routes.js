@@ -36,7 +36,14 @@ router.get('/cadastroCachorro', (req, res) => {
   res.render('cadastroCachorro');
 });
 router.get('/mostraCachorro', (req, res) => {
-res.render('mostraCachorro');
+  cachorroDB.buscarCachorros((err, cachorros) => {  // Usar o método da classe
+    if (err) {
+      console.error(err);
+      res.status(500).send('Erro ao buscar os cachorros.');
+    } else {
+      res.render('mostraCachorro', { cachorros });
+    }
+  });
 });
 router.get('/atualizaCachorro', (req, res) => {
 res.render('atualizaCachorro');

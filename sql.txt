@@ -102,7 +102,7 @@ CREATE TABLE `cachorro` (
 
 LOCK TABLES `cachorro` WRITE;
 /*!40000 ALTER TABLE `cachorro` DISABLE KEYS */;
-INSERT INTO `cachorro` VALUES (14,'Cachorro2',1,'2019','Grande','nao','Apto',1,'/uploads/foto-1691624724001.jpg','Apelido Cachorro2'),(15,'admin',1,'2019','Médio','nao','Inapto',1,'/uploads/foto-1691790867092.jpg','jorjão'),(32,'teste',1,'2020','Grande','nao','Apto',1,'/uploads/foto-1695084410577.jpg','teste'),(33,'teste',1,'2020','Grande','nao','Apto',1,'/uploads/foto-1695084533272.jpg','teste'),(34,'Teste',1,'2020','Grande','nao','Apto',1,'/uploads/foto-1695085306122.jpg','Teste');
+INSERT INTO `cachorro` VALUES (14,'Cachorro2',1,'2019','Grande','nao','Apto',1,'/uploads/bulldog2.jpg','Apelido Cachorro2'),(15,'admin',1,'2019','Médio','nao','Inapto',1,'/uploads/bulldog.jpg','jorjão');
 /*!40000 ALTER TABLE `cachorro` ENABLE KEYS */;
 UNLOCK TABLES;
 
