@@ -1,4 +1,5 @@
 class EstadoAdocao {
+    // observador
     constructor() {
         this.observadores = [];
     }

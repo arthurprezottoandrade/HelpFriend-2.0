@@ -5,7 +5,6 @@ const CachorroDB = require('./class/CachorroDB');  // Importar a classe
 const FuncionarioDB = require('./class/FuncionarioDB');  // Importar a classe
 const AdotanteDB = require('./class/AdotanteDB');  // Importar a classe
 const router = express.Router();
-const nodemailer = require('nodemailer');
 const EstadoAdocao = require('./public/js/estadoAdocao');
 const EmailObservador = require('./public/js/observadores');
 const transporter = require('./public/js/emailConfig');

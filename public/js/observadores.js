@@ -1,5 +1,5 @@
 const transporter = require('./emailConfig');  // Atualize o caminho para onde o emailConfig.js está localizado
-
+// faz o envio do email através do observer
 class EmailObservador {
     atualizar(novoCachorro) {
         console.log("Enviando e-mail de notificação...");

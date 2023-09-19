@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+// permissão para acesso do email do remetente
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
