@@ -1,311 +1,268 @@
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
--- Database: `helpfriendbanco`
---
+-- Host: localhost    Database: helpfriendbanco
+-- ------------------------------------------------------
+-- Server version	8.0.28
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `administrador`
 --
 
+DROP TABLE IF EXISTS `administrador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `administrador` (
-  `Id` int(11) NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `email` varchar(100) NOT NULL,
+  UNIQUE KEY `administrador_un` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `administrador`
 --
 
-INSERT INTO `administrador` (`Id`, `Nome`, `Senha`, `email`) VALUES
-(1, 'ADM', 'admsenha', 'adm@gmail.com');
-
--- --------------------------------------------------------
+LOCK TABLES `administrador` WRITE;
+/*!40000 ALTER TABLE `administrador` DISABLE KEYS */;
+INSERT INTO `administrador` VALUES (1,'ADM','admsenha','adm@gmail.com');
+/*!40000 ALTER TABLE `administrador` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `adotante`
 --
 
+DROP TABLE IF EXISTS `adotante`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `adotante` (
-  `Id` int(11) NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
   `Cpf` varchar(11) NOT NULL,
-  `id_endereco` int(11) NOT NULL,
-  `email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_endereco` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  UNIQUE KEY `adotante_un` (`Id`),
+  KEY `adotante_FK` (`id_endereco`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `adotante`
 --
 
-INSERT INTO `adotante` (`Id`, `Nome`, `Senha`, `Cpf`, `id_endereco`, `email`) VALUES
-(1, 'Adotante', 'senhaadotante', '00000000000', 1, 'adotante@gmail.com');
-
--- --------------------------------------------------------
+LOCK TABLES `adotante` WRITE;
+/*!40000 ALTER TABLE `adotante` DISABLE KEYS */;
+INSERT INTO `adotante` VALUES (1,'Adotante','senhaadotante','00000000000','1','adotante@gmail.com');
+/*!40000 ALTER TABLE `adotante` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `cachorro`
 --
 
+DROP TABLE IF EXISTS `cachorro`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cachorro` (
-  `Id` int(11) NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
-  `Id_Raca` int(11) NOT NULL,
+  `Id_Raca` int NOT NULL,
   `Ano_Nascimento` varchar(4) NOT NULL,
   `Porte` varchar(30) NOT NULL,
   `Adotado` varchar(3) NOT NULL,
   `Situacao` varchar(6) NOT NULL,
-  `Id_Instituicao` int(11) NOT NULL,
+  `Id_Instituicao` int NOT NULL,
   `Imagem` varchar(50) NOT NULL,
-  `Apelido` varchar(50) NOT NULL
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Apelido` varchar(50) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `cachorro_FK` (`Id_Instituicao`),
+  KEY `raca_fk` (`Id_Raca`),
+  CONSTRAINT `cachorro_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`),
+  CONSTRAINT `cachorro_raca_FK` FOREIGN KEY (`Id_Raca`) REFERENCES `raca` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `cachorro`
 --
 
-INSERT INTO `cachorro` (`Id`, `Nome`, `Id_Raca`, `Ano_Nascimento`, `Porte`, `Adotado`, `Situacao`, `Id_Instituicao`, `Imagem`, `Apelido`) VALUES
-(5, 'Cachorro', 3, '2015', 'Médio', '', 'Apto', 1, '', 'Panqueca');
-
--- --------------------------------------------------------
+LOCK TABLES `cachorro` WRITE;
+/*!40000 ALTER TABLE `cachorro` DISABLE KEYS */;
+INSERT INTO `cachorro` VALUES (14,'Cachorro2',1,'2019','Grande','nao','Apto',1,'/uploads/foto-1691624724001.jpg','Apelido Cachorro2'),(15,'admin',1,'2019','Médio','nao','Inapto',1,'/uploads/foto-1691790867092.jpg','jorjão'),(32,'teste',1,'2020','Grande','nao','Apto',1,'/uploads/foto-1695084410577.jpg','teste'),(33,'teste',1,'2020','Grande','nao','Apto',1,'/uploads/foto-1695084533272.jpg','teste'),(34,'Teste',1,'2020','Grande','nao','Apto',1,'/uploads/foto-1695085306122.jpg','Teste');
+/*!40000 ALTER TABLE `cachorro` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `endereco`
 --
 
+DROP TABLE IF EXISTS `endereco`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `endereco` (
-  `Id` int(11) auto_increment NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `Bairro` varchar(100) NOT NULL,
   `Cidade` varchar(100) NOT NULL,
   `Estado` varchar(100) NOT NULL,
   `Logradouro` varchar(100) NOT NULL,
-  `Numero` int(11) NOT NULL,
-  `Complemento` varchar(100) NOT null,
-  CONSTRAINT endereco_pk PRIMARY KEY (Id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Numero` int NOT NULL,
+  `Complemento` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `endereco`
 --
 
-INSERT INTO `endereco` (`Id`, `Bairro`, `Cidade`, `Estado`, `Logradouro`, `Numero`, `Complemento`) VALUES
-(1, 'Xaxim', 'Curitiba', 'Paraná', 'Cristiano Strobel', 2394, ''),
-(2, 'Boqueirão', 'Curitiba', 'Paraná', 'Oliveira Viana', 22294, '');
-
--- --------------------------------------------------------
+LOCK TABLES `endereco` WRITE;
+/*!40000 ALTER TABLE `endereco` DISABLE KEYS */;
+INSERT INTO `endereco` VALUES (1,'Xaxim','Curitiba','Paraná','Cristiano Strobel',2394,''),(2,'Boqueirão','Curitiba','Paraná','Oliveira Viana',22294,'');
+/*!40000 ALTER TABLE `endereco` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `funcionario`
 --
 
+DROP TABLE IF EXISTS `funcionario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `funcionario` (
-  `Id` int(11) NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
-  `Id_Instituicao` int(11) NOT NULL,
+  `Id_Instituicao` int NOT NULL,
   `cpf` varchar(11) NOT NULL,
   `cargo` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `email` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `funcionario_FK` (`Id_Instituicao`),
+  CONSTRAINT `funcionario_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `funcionario`
 --
 
-INSERT INTO `funcionario` (`Id`, `Nome`, `Senha`, `Id_Instituicao`, `cpf`, `cargo`, `email`) VALUES
-(1, 'funcionario', 'senhafuncionario', 1, '00000000000', 'Veterinário', 'funcionario@gmail.com');
-
--- --------------------------------------------------------
+LOCK TABLES `funcionario` WRITE;
+/*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
+INSERT INTO `funcionario` VALUES (1,'funcionario','senhafuncionario',1,'00000000000','Veterinário','funcionario@gmail.com'),(2,'Funcionario 1','senha',1,'Gerente','12345678912','funcionario@gmail.com');
+/*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `instituicao`
 --
 
+DROP TABLE IF EXISTS `instituicao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `instituicao` (
-  `Id` int(11) NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
-  `id_administrador` int(11) NOT NULL,
-  `id_endereco` int(11) NOT NULL,
+  `id_administrador` int NOT NULL,
+  `id_endereco` int NOT NULL,
   `email` varchar(100) NOT NULL,
-  `telefone` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `telefone` varchar(11) NOT NULL,
+  UNIQUE KEY `instituicao_un` (`Id`),
+  KEY `instituicao_FK` (`id_administrador`),
+  KEY `instituicao_endereco_FK` (`id_endereco`),
+  CONSTRAINT `instituicao_endereco_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`),
+  CONSTRAINT `instituicao_FK` FOREIGN KEY (`id_administrador`) REFERENCES `administrador` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `instituicao`
 --
 
-INSERT INTO `instituicao` (`Id`, `Nome`, `Senha`, `id_administrador`, `id_endereco`, `email`, `telefone`) VALUES
-(1, 'Help Dog', 'helpdogsenha', 1, 1, 'helpdog@gmail.com', '32872352');
-
--- --------------------------------------------------------
+LOCK TABLES `instituicao` WRITE;
+/*!40000 ALTER TABLE `instituicao` DISABLE KEYS */;
+INSERT INTO `instituicao` VALUES (1,'Help Dog','helpdogsenha',1,1,'helpdog@gmail.com','32872352');
+/*!40000 ALTER TABLE `instituicao` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `raca`
 --
 
+DROP TABLE IF EXISTS `raca`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `raca` (
-  `Id` int(11) NOT NULL,
-  `Nome` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Id` int NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `raca`
 --
 
-INSERT INTO `raca` (`Id`, `Nome`) VALUES
-(1, 'Pug'),
-(2, 'Rottweiler'),
-(3, 'Husky');
-
--- --------------------------------------------------------
+LOCK TABLES `raca` WRITE;
+/*!40000 ALTER TABLE `raca` DISABLE KEYS */;
+INSERT INTO `raca` VALUES (1,'Pug'),(2,'Rottweiler'),(3,'Husky');
+/*!40000 ALTER TABLE `raca` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `reserva`
 --
 
+DROP TABLE IF EXISTS `reserva`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reserva` (
-  `id` int(11) NOT NULL,
-  `id_adotante` int(11) NOT NULL,
-  `id_cachorro` int(11) NOT NULL,
-  `status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_adotante` int NOT NULL,
+  `id_cachorro` int NOT NULL,
+  `status` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `reserva_adotante_FK` (`id_adotante`),
+  KEY `reserva_cachorro_FK` (`id_cachorro`),
+  CONSTRAINT `reserva_adotante_FK` FOREIGN KEY (`id_adotante`) REFERENCES `adotante` (`Id`),
+  CONSTRAINT `reserva_cachorro_FK` FOREIGN KEY (`id_cachorro`) REFERENCES `cachorro` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `reserva`
 --
 
---
--- Indexes for table `administrador`
---
-ALTER TABLE `administrador`
-  ADD UNIQUE KEY `administrador_un` (`Id`);
+LOCK TABLES `reserva` WRITE;
+/*!40000 ALTER TABLE `reserva` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reserva` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Indexes for table `adotante`
+-- Dumping routines for database 'helpfriendbanco'
 --
-ALTER TABLE `adotante`
-  ADD UNIQUE KEY `adotante_un` (`Id`),
-  ADD KEY `adotante_FK` (`id_endereco`);
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indexes for table `cachorro`
---
-ALTER TABLE `cachorro`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `cachorro_FK` (`Id_Instituicao`),
-  ADD KEY `raca_fk` (`Id_Raca`);
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
---
--- Indexes for table `funcionario`
---
-ALTER TABLE `funcionario`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `funcionario_FK` (`Id_Instituicao`);
-
---
--- Indexes for table `instituicao`
---
-ALTER TABLE `instituicao`
-  ADD UNIQUE KEY `instituicao_un` (`Id`),
-  ADD KEY `instituicao_FK` (`id_administrador`),
-  ADD KEY `instituicao_endereco_FK` (`id_endereco`);
-
---
--- Indexes for table `raca`
---
-ALTER TABLE `raca`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `reserva`
---
-ALTER TABLE `reserva`
-  ADD PRIMARY KEY (`id_reserva`),
-  ADD KEY `reserva_adotante_FK` (`id_adotante`),
-  ADD KEY `reserva_cachorro_FK` (`id_cachorro`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `administrador`
---
-ALTER TABLE `administrador`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `adotante`
---
-ALTER TABLE `adotante`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `cachorro`
---
-ALTER TABLE `cachorro`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `funcionario`
---
-ALTER TABLE `funcionario`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `instituicao`
---
-ALTER TABLE `instituicao`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `raca`
---
-ALTER TABLE `raca`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `reserva`
---
-ALTER TABLE `reserva`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `adotante`
---
-ALTER TABLE `adotante`
-  ADD CONSTRAINT `adotante_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`);
-
---
--- Constraints for table `cachorro`
---
-ALTER TABLE `cachorro`
-  ADD CONSTRAINT `cachorro_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`),
-  ADD CONSTRAINT `cachorro_raca_FK` FOREIGN KEY (`Id_Raca`) REFERENCES `raca` (`Id`);
-
---
--- Constraints for table `funcionario`
---
-ALTER TABLE `funcionario`
-  ADD CONSTRAINT `funcionario_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`);
-
---
--- Constraints for table `instituicao`
---
-ALTER TABLE `instituicao`
-  ADD CONSTRAINT `instituicao_FK` FOREIGN KEY (`id_administrador`) REFERENCES `administrador` (`Id`),
-  ADD CONSTRAINT `instituicao_endereco_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`);
-
---
--- Constraints for table `reserva`
---
-ALTER TABLE `reserva`
-  ADD CONSTRAINT `reserva_adotante_FK` FOREIGN KEY (`id_adotante`) REFERENCES `adotante` (`Id`),
-  ADD CONSTRAINT `reserva_cachorro_FK` FOREIGN KEY (`id_cachorro`) REFERENCES `cachorro` (`Id`);
+-- Dump completed on 2023-09-18 22:10:38
