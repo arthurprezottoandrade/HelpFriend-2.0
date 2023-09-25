@@ -112,8 +112,10 @@ body main {
     margin-top: 100px;
  }
 
-.cards {
-    display: flexbox;
+ .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .card {
@@ -121,9 +123,8 @@ body main {
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(179, 179, 179, 0.2);
     transition: 0.3s;
-    margin-left: 80px;
-    margin-right: 80px;
-    width: 50vw;
+    margin: 15px;
+    width: calc(50% - 30px); 
     padding-bottom: 10px;
 }
 
