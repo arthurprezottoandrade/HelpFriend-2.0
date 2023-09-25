@@ -7,4 +7,5 @@ const transporter = nodemailer.createTransport({
         pass: 'ttvm atwt wkcc dwxy'
     }
 });
+// modulo a ser exportado
 module.exports = transporter;
