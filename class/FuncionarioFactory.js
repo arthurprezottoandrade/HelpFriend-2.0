@@ -7,11 +7,6 @@ class FuncionarioFactory {
         return new Funcionario(nome, email, senha, cpf, cargo);
     }
 }
-<<<<<<< Updated upstream
-// exportando modulos
-module.exports = FuncionarioFactory;
-=======
 
 // módulo para ser importado em outros arquivos JavaScrip
 module.exports = FuncionarioFactory;
->>>>>>> Stashed changes

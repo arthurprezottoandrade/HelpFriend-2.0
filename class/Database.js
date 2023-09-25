@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 
 class Database {
     constructor() {
-        // Criaçõ da instância da conexão com o banco de dados
+        // Criação da instância da conexão com o banco de dados
         this.db = mysql.createConnection({
             host: 'localhost',
             user: 'root',

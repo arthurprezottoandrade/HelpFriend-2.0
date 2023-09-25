@@ -72,22 +72,7 @@ router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {
     // Cria uma instância da classe 'Cachorro Factory'
     const dados = CachorroFactory.criarCachorro(req.body);
     dados.imagem = req.file ? '/uploads/' + req.file.filename : null;
-    // ============================== Apagar conteúdo da linha 73 à 85? =============================================
-    // Envia o e-mail quando um novo cachorro é cadastrado
-    const mailOptions = {
-      from: 'seu-email@gmail.com',
-      to: 'email-destinatario@gmail.com',
-      subject: 'Novo cachorro disponível para adoção!',
-      text: 'Um novo cachorro foi cadastrado e está disponível para adoção.'
-    };
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email enviado: ' + info.response);
-      }
-    });
-
+   
     dados.inserirCachorro(dados, (err) => {  // Utiliza o método da classe 'CachorroDB'
       if (err) {
         console.error(err);
