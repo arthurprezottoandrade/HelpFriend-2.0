@@ -64,8 +64,9 @@ res.render('loginFuncionario');
 });
 // Mandando dados
 router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {
+    // realizando tratamento na imagem 
     const imagem = req.file ? '/uploads/' + req.file.filename : null
-    
+    // criando o objeto cachorro utilizando a factory
     const dados = CachorroFactory.criarCachorro(req.body); // Criar uma instância da classe
     dados.imagem = req.file ? '/uploads/' + req.file.filename : null;
     // Enviar o e-mail quando um novo cachorro é cadastrado
@@ -94,6 +95,7 @@ router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {
     });
 });
 router.post('/cadastroFuncionario', (req, res) => {
+  // criando objeto funcionario utilizando a factory
   const dados = FuncionarioFactory.criarFuncionario(req.body);
 
   // Inserir o novo funcionário no banco de dados
