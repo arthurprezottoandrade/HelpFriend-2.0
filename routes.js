@@ -1,13 +1,11 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const CachorroDB = require('./class/CachorroDB');  // Importar a classe
-const FuncionarioDB = require('./class/FuncionarioDB');  // Importar a classe
-const AdotanteDB = require('./class/AdotanteDB');  // Importar a classe
+const CachorroDB = require('./class/CachorroDB');
+const AdotanteDB = require('./class/AdotanteDB');
 const router = express.Router();
 const EstadoAdocao = require('./public/js/estadoAdocao');
 const EmailObservador = require('./public/js/observadores');
-const transporter = require('./public/js/emailConfig');
 const FuncionarioFactory = require('./class/FuncionarioFactory');
 const CachorroFactory = require('./class/CachorroFactory');
 
@@ -34,7 +32,9 @@ router.get('/inicio', (req, res) => {
     }
   });
 });
-
+router.get('/', (req, res) => {
+  res.redirect('/inicio');
+});
 router.get('/cadastroCachorro', (req, res) => {
   res.render('cadastroCachorro');
 });
@@ -61,8 +61,10 @@ router.get('/cadastroFuncionario', (req, res) => {
 router.get('/cadastroAdotante', (req, res) => {
   res.render('cadastroAdotante');
 });
+
+
 router.get('/loginFuncionario', (req, res) => {
-res.render('loginFuncionario');
+  res.render('loginFuncionario');
 });
 // Mandando dados
 router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {
