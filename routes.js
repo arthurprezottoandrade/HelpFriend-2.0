@@ -79,7 +79,7 @@ router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {
         res.status(500).send('Erro ao cadastrar o cachorro.');
       } else {
         EstadoAdocao.notificarObservadores(dados);
-        res.send('Cadastro realizado com sucesso!');
+        res.redirect('/inicio');
       }
     });
 });
