@@ -10,8 +10,6 @@ const FuncionarioFactory = require('./class/FuncionarioFactory');
 const CachorroFactory = require('./class/CachorroFactory');
 
 
-const emailObservador = new EmailObservador();
-EstadoAdocao.adicionarObservador(emailObservador);
 const cachorroDB = new CachorroDB()
 const storage = multer.diskStorage({
     destination: 'uploads/',
@@ -68,6 +66,9 @@ router.get('/loginFuncionario', (req, res) => {
 });
 // Mandando dados
 router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {    
+    
+    const emailObservador = new EmailObservador();
+    EstadoAdocao.adicionarObservador(emailObservador);
     // Cria uma instância da classe 'Cachorro Factory'
     const dados = CachorroFactory.criarCachorro(req.body);
     dados.imagem = req.file ? '/uploads/' + req.file.filename : null;
