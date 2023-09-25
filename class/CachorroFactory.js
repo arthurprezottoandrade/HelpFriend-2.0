@@ -7,11 +7,6 @@ class CachorroFactory {
         return new CachorroDB(nome, apelido, anoNascimento, porte, raca, situacao, imagem);
     }
 }
-<<<<<<< Updated upstream
-// exportando o modulo
-module.exports = CachorroFactory;
-=======
 
 // módulo para ser importado em outros arquivos JavaScrip
 module.exports = CachorroFactory;
->>>>>>> Stashed changes

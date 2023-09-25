@@ -68,14 +68,9 @@ res.render('loginFuncionario');
 router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {
     // realizando tratamento na imagem 
     const imagem = req.file ? '/uploads/' + req.file.filename : null
-<<<<<<< Updated upstream
-    // criando o objeto cachorro utilizando a factory
-    const dados = CachorroFactory.criarCachorro(req.body); // Criar uma instância da classe
-=======
     
     // Cria uma instância da classe 'Cachorro Factory'
     const dados = CachorroFactory.criarCachorro(req.body);
->>>>>>> Stashed changes
     dados.imagem = req.file ? '/uploads/' + req.file.filename : null;
     // ============================== Apagar conteúdo da linha 73 à 85? =============================================
     // Envia o e-mail quando um novo cachorro é cadastrado
@@ -139,9 +134,5 @@ router.post('/cadastroAdotante', (req, res) => {
   });
 });
 
-<<<<<<< Updated upstream
-module.exports = router;
-=======
 // módulo para ser importado em outros arquivos JavaScrip
 module.exports = router;
->>>>>>> Stashed changes

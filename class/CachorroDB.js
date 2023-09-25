@@ -13,23 +13,15 @@ class CachorroDB {
         // cria uma nova instância da classe Database
         this.Database = new Database();
     }
-<<<<<<< Updated upstream
-    // inserindo no banco de dados
-=======
     // método para inserir um novo cachorro no banco de dados
->>>>>>> Stashed changes
     inserirCachorro(dados, callback) {
         // inserir dados na tabela 'cachorro'
         const sql = 'INSERT INTO cachorro (Nome, Id_Raca, Ano_Nascimento, Porte, Adotado, Situacao, Id_Instituicao, Imagem, Apelido) VALUES (?, 1, ?, ?, \'nao\', ?, 1, ?, ?)';
         // executa a consulta de inserção SQL no banco de dados
         this.Database.query(sql, [dados.nome, dados.anoNascimento, dados.porte, dados.situacao, dados.imagem, dados.apelido], callback);
     }
-<<<<<<< Updated upstream
-    // buscando do banco de dados
-=======
 
     // método para buscar todos os cachorros no banco de dados
->>>>>>> Stashed changes
     buscarCachorros(callback) {
         // busca dados na tabela 'cachorro'
         const sql = 'SELECT * FROM cachorro';
@@ -38,9 +30,5 @@ class CachorroDB {
     }
 }
 
-<<<<<<< Updated upstream
-module.exports = CachorroDB;
-=======
 // módulo para ser importado em outros arquivos JavaScrip
 module.exports = CachorroDB;
->>>>>>> Stashed changes
