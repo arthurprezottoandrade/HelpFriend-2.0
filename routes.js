@@ -67,10 +67,7 @@ router.get('/loginFuncionario', (req, res) => {
   res.render('loginFuncionario');
 });
 // Mandando dados
-router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {
-    // realizando tratamento na imagem 
-    const imagem = req.file ? '/uploads/' + req.file.filename : null
-    
+router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {    
     // Cria uma instância da classe 'Cachorro Factory'
     const dados = CachorroFactory.criarCachorro(req.body);
     dados.imagem = req.file ? '/uploads/' + req.file.filename : null;

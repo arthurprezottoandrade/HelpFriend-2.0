@@ -1,6 +1,6 @@
 // importa a classe 'Database'
 const Database = require('./Database');
-class CachorroDB extends Database {
+class CachorroDB extends Database{
     // atributos necessarios para a criação do objeto
     constructor(nome, apelido, anoNascimento, porte, raca, situacao, imagem) {
         super();
@@ -11,7 +11,6 @@ class CachorroDB extends Database {
         this.raca = raca;
         this.situacao = situacao;
         this.imagem = imagem;
-    
     }
     // método para inserir um novo cachorro no banco de dados
     inserirCachorro(dados, callback) {
