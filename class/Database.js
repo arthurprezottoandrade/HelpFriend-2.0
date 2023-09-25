@@ -1,7 +1,9 @@
+// módulo para conexão com o banco de dados em Node.js
 const mysql = require('mysql2');
 
 class Database {
     constructor() {
+        // Criaçõ da instância da conexão com o banco de dados
         this.db = mysql.createConnection({
             host: 'localhost',
             user: 'root',
@@ -9,6 +11,7 @@ class Database {
             database: 'helpfriendbanco',
             port: 3306
         });
+        // estabelece a conexão com o banco de dados após a criação do objeto
         this.connect();
     }
 
@@ -27,12 +30,15 @@ class Database {
         this.db.query(sql, params, (err, results) => {
             if (err) {
                 console.error("Erro ao executar a consulta:", err);
+                // função de retorno de chamada passando erros
                 callback(err, null);
                 return;
             }
+            // função de retorno de chamada passando resultados
             callback(null, results);
         });
     }
 }
 
+// módulo para ser importado em outros arquivos JavaScrip
 module.exports = Database;

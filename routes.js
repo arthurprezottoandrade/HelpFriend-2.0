@@ -24,21 +24,23 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get('/inicio', (req, res) => {
-    cachorroDB.buscarCachorros((err, cachorros) => {  // Usar o método da classe
-      if (err) {
-        console.error(err);
-        res.status(500).send('Erro ao buscar os cachorros.');
-      } else {
-        res.render('inicio', { cachorros });
-      }
-    });
+  // Utiliza o método da classe 'CachorroDB'
+  cachorroDB.buscarCachorros((err, cachorros) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Erro ao buscar os cachorros.');
+    } else {
+      res.render('inicio', { cachorros });
+    }
+  });
 });
 
 router.get('/cadastroCachorro', (req, res) => {
   res.render('cadastroCachorro');
 });
 router.get('/mostraCachorro', (req, res) => {
-  cachorroDB.buscarCachorros((err, cachorros) => {  // Usar o método da classe
+  // Utiliza o método da classe 'CachorroDB'
+  cachorroDB.buscarCachorros((err, cachorros) => {
     if (err) {
       console.error(err);
       res.status(500).send('Erro ao buscar os cachorros.');
@@ -66,10 +68,17 @@ res.render('loginFuncionario');
 router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {
     // realizando tratamento na imagem 
     const imagem = req.file ? '/uploads/' + req.file.filename : null
+<<<<<<< Updated upstream
     // criando o objeto cachorro utilizando a factory
     const dados = CachorroFactory.criarCachorro(req.body); // Criar uma instância da classe
+=======
+    
+    // Cria uma instância da classe 'Cachorro Factory'
+    const dados = CachorroFactory.criarCachorro(req.body);
+>>>>>>> Stashed changes
     dados.imagem = req.file ? '/uploads/' + req.file.filename : null;
-    // Enviar o e-mail quando um novo cachorro é cadastrado
+    // ============================== Apagar conteúdo da linha 73 à 85? =============================================
+    // Envia o e-mail quando um novo cachorro é cadastrado
     const mailOptions = {
       from: 'seu-email@gmail.com',
       to: 'email-destinatario@gmail.com',
@@ -84,7 +93,7 @@ router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {
       }
     });
 
-    dados.inserirCachorro(dados, (err) => {  // Usar o método da classe
+    dados.inserirCachorro(dados, (err) => {  // Utiliza o método da classe 'CachorroDB'
       if (err) {
         console.error(err);
         res.status(500).send('Erro ao cadastrar o cachorro.');
@@ -109,15 +118,17 @@ router.post('/cadastroFuncionario', (req, res) => {
   });
 });
 router.post('/cadastroAdotante', (req, res) => {
+  // dados do corpo da requisição
   const nome = req.body.nome;
   const email = req.body.email;
   const senha = req.body.senha;
   const cpf = req.body.cpf;
   const endereco = req.body.endereco;
 
+  // cria objeto 'dados' da classe 'AdotanteDB' com os dados obtidos da requisição
   const dados = new AdotanteDB(nome, email, senha, endereco, cpf);
 
-  // Inserir o novo adotante no banco de dados
+  // Insere o novo adotante no banco de dados
   dados.inserirAdotante(dados, (err) => {  
     if (err) {
       console.error(err);
@@ -128,4 +139,9 @@ router.post('/cadastroAdotante', (req, res) => {
   });
 });
 
+<<<<<<< Updated upstream
 module.exports = router;
+=======
+// módulo para ser importado em outros arquivos JavaScrip
+module.exports = router;
+>>>>>>> Stashed changes

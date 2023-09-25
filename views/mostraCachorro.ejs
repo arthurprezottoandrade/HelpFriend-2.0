@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
     <head>
         <meta charset="UTF-8">
         <title>Help Friend</title>
@@ -8,56 +7,69 @@
         <link rel="stylesheet" type="text/css" href="../public/css/mostraCachorro.css">
     </head>
     <body>
-
-    <header class="cabecalho">
-        <button id="menuBtn" class="material-icons">menu</button>
-        <div id="sideMenu" class="side-menu">
-            <a href="#" class="close-btn" id="closeBtn">&times;</a>
-            <a href="#">INICIO</a>
-            <a href="#">CONTATO</a>
-            <a href="#">SOBRE</a>
-        </div>
-        <img id="logoPrincipal" class="logo" src="../public/images/logopng.png" alt="Logo Ícone">
-        <div class="botoes-cabecalho">
-            <button class="login-btn" href="">LOGIN</button>
-            <button class="cadastro-btn" href="">CADASTRO</button>
-        </div>
-    </header>
-    <main>
-        <!-- CONTEÚDO PRINCIPAL: deslocado para direita em 270 pixels quando a sidebar é visível -->
-        <div class="w3-container">
-            <div class="w3-panel w3-padding-large w3-card-4 w3-light-dark">
-                <h1 class="w3-xxlarge"style="text-align: center">Cachorros</h1>
-                <p class="w3-large"></p>
-                <div class="w3-code cssHigh notranslate">  
-                    <!-- Atualizar e Excluir cachorro -->
-                    <tr>
-                        <td>
-                            <a href='atualizacachorro.html?id='><img src='../public/images/editar.png' title='Editar Cachorro' width='32'></a>
-                        </td>
-                        <td>
-                            <a href='deletaCachorro.html?id='><img src='../public/images/excluir.png' title='Excluir Cachorro' width='32'></a>
-                        </td>
-                    </tr>
-                </div>
+        <header class="cabecalho">
+            <button id="menuBtn" class="material-icons">menu</button>
+            <div id="sideMenu" class="side-menu">
+                <a href="#" class="close-btn" id="closeBtn">&times;</a>
+                <a href="#">INICIO</a>
+                <a href="#">CONTATO</a>
+                <a href="#">SOBRE</a>
             </div>
-        </div>
-    </main>
-    <!-- RODAPÉ -->
-    <footer>
-        <img class="img-rodape" src="../public/images/logo_verticalpng.png">
-        <div class="rodape-btn">
-            <a href="#">INICIO</a>
-            <a href="#">CONTATO</a>
-            <a href="#">SOBRE</a>
-        </div>
-        <div class="redes-sociais">
-            <img src="../public/images/facebook.png">
-            <img src="../public/images/whatsapp.png">
-            <img src="../public/images/instagram.png">
-        </div>
-        <p class="copyright"> Copyright &copy; 2023 Help Friend</p>
-    </footer>
-    <script src="../public/js/cadastroCachorro.js"></script>
-</body>
+            <img id="logoPrincipal" class="logo" src="../public/images/logopng.png" alt="Logo Ícone">
+            <div class="botoes-cabecalho">
+                <button class="login-btn" href="">LOGIN</button>
+                <button class="cadastro-btn" href="">CADASTRO</button>
+            </div>
+        </header>
+        <main>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome do Cachorro</th>
+                            <th>Apelido do Cachorro</th>
+                            <th>Ano de Nascimento</th>
+                            <th>Porte</th>
+                            <th>Raça</th>
+                            <th>Situação</th>
+                            <th>Editar</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <!-- Atualizar e Excluir cachorro -->
+                            <td>
+                                <a href='atualizacachorro.html?id='><img src='../public/images/editar.png' title='Editar Cachorro' width='32'></a>
+                            </td>
+                            <td>
+                                <a href='deletaCachorro.html?id='><img src='../public/images/excluir.png' title='Excluir Cachorro' width='32'></a>
+                            </td>
+                        </tr>
+                    </tbody>
+            </div>
+        </main>
+        <!-- RODAPÉ -->
+        <footer>
+            <img class="img-rodape" src="../public/images/logo_verticalpng.png">
+            <div class="rodape-btn">
+                <a href="#">INICIO</a>
+                <a href="#">CONTATO</a>
+                <a href="#">SOBRE</a>
+            </div>
+            <div class="redes-sociais">
+                <img src="../public/images/facebook.png">
+                <img src="../public/images/whatsapp.png">
+                <img src="../public/images/instagram.png">
+            </div>
+            <p class="copyright"> Copyright &copy; 2023 Help Friend</p>
+        </footer>
+        <script src="../public/js/cadastroCachorro.js"></script>
+    </body>
 </html>
