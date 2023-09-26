@@ -66,7 +66,6 @@ router.get('/loginFuncionario', (req, res) => {
 });
 // Mandando dados
 router.post('/cadastroCachorro', upload.single('foto'), (req, res) => {    
-    
     const emailObservador = new EmailObservador();
     EstadoAdocao.adicionarObservador(emailObservador);
     // Cria uma instância da classe 'Cachorro Factory'
